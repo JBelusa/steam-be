@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+/**
+ * The Game entity class representing a game record in the database.
+ */
 @Entity
 @Data
 @AllArgsConstructor
@@ -31,7 +34,6 @@ public class Game {
     @Column(nullable = false)
     private LocalDate releaseDate;
     @ManyToOne(optional = false)
-//    @JsonIgnoreProperties("games")
     @JoinColumn(name = "developer_id")
     private Developer developer;
 

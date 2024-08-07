@@ -8,12 +8,20 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Optional;
 
-
+/**
+ * This class is responsible for mapping Developer entities to Developer Data Transfer Objects (DTOs) and vice versa.
+ */
 @Component
 public class DeveloperMapper {
     @Autowired
     GameMapper gameMapper;
 
+    /**
+     * Maps a Developer entity to a Developer DTO.
+     *
+     * @param developer The Developer entity to be mapped.
+     * @return The Developer DTO representing the input Developer entity.
+     */
     public DeveloperDTO fromEntityToDTO(Developer developer) {
         DeveloperDTO developerDTO = new DeveloperDTO();
         developerDTO.setId(developer.getId());
@@ -24,15 +32,12 @@ public class DeveloperMapper {
         return developerDTO;
     }
 
-//    public Developer fromDTOToEntityGet(DeveloperDTO developerDTO) {
-//        Developer developer = new Developer();
-//        developer.setName(developerDTO.getName());
-//        developer.setDescription(developerDTO.getDescription());
-//        developer.setUrl(developerDTO.getUrl());
-//        developer.setGames(developerDTO.getGames().stream().map(gameDTO -> gameMapper.fromDTOToEntity(gameDTO, developer)).toList());
-//        return developer;
-//    }
-
+    /**
+     * Maps a Developer DTO to a Developer entity.
+     *
+     * @param developerDTO The Developer DTO to be mapped.
+     * @return The Developer entity representing the input Developer DTO.
+     */
     public Developer fromDTOToEntity(DeveloperDTO developerDTO) {
         Developer developer = new Developer();
         developer.setName(developerDTO.getName());

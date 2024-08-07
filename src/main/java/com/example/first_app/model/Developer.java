@@ -9,6 +9,9 @@ import lombok.ToString;
 
 import java.util.List;
 
+/**
+ * Represents a developer in the game database.
+ */
 @Entity
 
 @Data
@@ -25,7 +28,9 @@ public class Developer {
     @Column(columnDefinition = "TEXT")
     private String description;
     private String url;
-    //    @JsonIgnoreProperties("developer")
+    /**
+     * The list of games associated with the developer. * The games are removed from the database if the developer is deleted (orphan removal).
+     */
     @OneToMany(mappedBy = "developer", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Game> games;
 }
